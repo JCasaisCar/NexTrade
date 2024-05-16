@@ -25,22 +25,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelNuevaVenta extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
-	private int idVenta = 0;
+	private Conexion conex = new Conexion();
+	private int idVenta = conex.obtenerUltimoIdVenta();
 	private String condicion = " WHERE id_venta = " + idVenta;
 
 	//Creación tabla
-	String[] cabezera = {"ID", "PRODUCTO", "CANTIDAD", "PRECIO", "TOTAL"};
+	private String[] cabezera = {"ID", "PRODUCTO", "CANTIDAD", "PRECIO", "TOTAL"};
 
 	//Declaración tabla
-	JPanelTabla panelTabla = new JPanelTabla();
-	JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datosFiltradosColumnas("detalle", "id, nombreProducto, cantidad, precioProducto, total", condicion));
+	private JPanelTabla panelTabla = new JPanelTabla();
+	private JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datosFiltradosColumnas("detalle", "id, nombreProducto, cantidad, precioProducto, total", condicion));
 
 	//Textos y frases
 	private JLabel codigo = new JLabel("Código:");
@@ -63,10 +64,10 @@ public class JPanelNuevaVenta extends JPanel{
 	private JTextField fechaTexto = new JTextField(20);
 
 	//Declaración iconos de los botones
-	ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
-	ImageIcon iconoVenta = new ImageIcon(Sistema.class.getResource("/img/torta.png"));
-	ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
-	ImageIcon iconoDetalle = new ImageIcon(Sistema.class.getResource("/img/report.png"));
+	private ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
+	private ImageIcon iconoVenta = new ImageIcon(Sistema.class.getResource("/img/torta.png"));
+	private ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
+	private ImageIcon iconoDetalle = new ImageIcon(Sistema.class.getResource("/img/report.png"));
 
 	//Declaración botones
 	private JButton printBoton = new JButton(iconoPrint);
@@ -87,6 +88,7 @@ public class JPanelNuevaVenta extends JPanel{
 	private DatosIncorrectos datosFrame3 = new DatosIncorrectos("El nombre del cliente introducido es incorrecto o esta vacio");
 	private DatosIncorrectos datosFrame4 = new DatosIncorrectos("El nombre del producto introducido es incorrecto o esta vacio");
 	private DatosIncorrectos datosFrame5 = new DatosIncorrectos("La fecha introducida es incorrecta o esta vacia");
+	private Guardado guardado = new Guardado("La venta se ha guardado");
 	private CantidadIncorrecta cantidadFrame = new CantidadIncorrecta();
 	private AbrirHTML abrirHTML = new AbrirHTML();
 
@@ -357,9 +359,6 @@ public class JPanelNuevaVenta extends JPanel{
 
 				String productoT = productoTexto.getText();
 
-
-				
-
 				Conexion conexion = new Conexion();
 				Connection cn = null;
 
@@ -436,7 +435,19 @@ public class JPanelNuevaVenta extends JPanel{
 
 						String[][] nuevosDatos = panelTabla.datosFiltradosColumnas("detalle", "id, nombreProducto, cantidad, precioProducto, total", condicion);
 						tabla.setViewportView(panelTabla.getTabla(cabezera, nuevosDatos)); //Para actualizar la tabla con datos nuevos
-
+						
+						dineroParaPagar.setText("----€"); //Reinicializamos el dinero ya que la venta se a terminado
+						
+						//Ponemos todos los campos de textos vacíos
+						productoTexto.setText("");
+						precioTexto.setText("");
+						stockTexto.setText("");
+						codigoTexto.setText("");
+						cantidadTexto.setText("");
+						clienteTexto.setText("");
+						nombreTexto.setText("");
+						
+						guardado.setVisible(true);
 					} else {
 						String mensaje = "Estos datos son incorrectos:";
 						if (!validacion.validarFecha(fechaT) == true) {

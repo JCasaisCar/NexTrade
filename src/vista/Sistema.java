@@ -21,42 +21,42 @@ import validaciones.Validaciones;
 
 public class Sistema extends JFrame {
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Declaración de los JPanel
-	JPanelNuevaVenta panel1 = new JPanelNuevaVenta();
-	JPanelClientes panel2 = new JPanelClientes();
-	JPanelProveedor panel3 = new JPanelProveedor();
-	JPanelProductos panel4 = new JPanelProductos();
-	JPanelVentas panel5 = new JPanelVentas();
-	JPanelConfiguracion panel6 = new JPanelConfiguracion();
+	private JPanelNuevaVenta panel1 = new JPanelNuevaVenta();
+	private JPanelClientes panel2 = new JPanelClientes();
+	private JPanelProveedor panel3 = new JPanelProveedor();
+	private JPanelProductos panel4 = new JPanelProductos();
+	private JPanelVentas panel5 = new JPanelVentas();
+	private JPanelConfiguracion panel6 = new JPanelConfiguracion();
 
 	//Declaración de los iconos
-	ImageIcon iconoNuevaVenta = new ImageIcon(Sistema.class.getResource("/img/Nventa.png"));
-	ImageIcon iconoClientes = new ImageIcon(Sistema.class.getResource("/img/Clientes.png"));
-	ImageIcon iconoProveedor = new ImageIcon(Sistema.class.getResource("/img/proveedor.png"));
-	ImageIcon iconoProductos = new ImageIcon(Sistema.class.getResource("/img/producto.png"));
-	ImageIcon iconoVentas = new ImageIcon(Sistema.class.getResource("/img/Carrito-de-compras.png"));
-	ImageIcon iconoConfiguración = new ImageIcon(Sistema.class.getResource("/img/config.png"));
+	private ImageIcon iconoNuevaVenta = new ImageIcon(Sistema.class.getResource("/img/Nventa.png"));
+	private ImageIcon iconoClientes = new ImageIcon(Sistema.class.getResource("/img/Clientes.png"));
+	private ImageIcon iconoProveedor = new ImageIcon(Sistema.class.getResource("/img/proveedor.png"));
+	private ImageIcon iconoProductos = new ImageIcon(Sistema.class.getResource("/img/producto.png"));
+	private ImageIcon iconoVentas = new ImageIcon(Sistema.class.getResource("/img/Carrito-de-compras.png"));
+	private ImageIcon iconoConfiguración = new ImageIcon(Sistema.class.getResource("/img/config.png"));
 
 	//Declaración de los botones
-	JButton boton1 = new JButton("NuevaVenta", iconoNuevaVenta);
-	JButton boton2 = new JButton("Clientes", iconoClientes);
-	JButton boton3 = new JButton("Proveedor", iconoProveedor);
-	JButton boton4 = new JButton("Productos", iconoProductos);
-	JButton boton5 = new JButton("Ventas", iconoVentas);
-	JButton boton6 = new JButton("Configuración", iconoConfiguración);
+	private JButton boton1 = new JButton("NuevaVenta", iconoNuevaVenta);
+	private JButton boton2 = new JButton("Clientes", iconoClientes);
+	private JButton boton3 = new JButton("Proveedor", iconoProveedor);
+	private JButton boton4 = new JButton("Productos", iconoProductos);
+	private JButton boton5 = new JButton("Ventas", iconoVentas);
+	private JButton boton6 = new JButton("Configuración", iconoConfiguración);
 
 	//Declaración de el texto
-	JLabel texto = new JLabel("NexTrade: Sistema de Ventas");
+	private JLabel texto = new JLabel("NexTrade: Sistema de Ventas");
 	
 	//Declaración de la fuente 
-	Font fuente = new Font("Tahoma", Font.BOLD, 80);
+	private Font fuente = new Font("Tahoma", Font.BOLD, 80);
 	
 	//Declaración de el logo
-	JPanelLogo logo = new JPanelLogo();
+	private JPanelLogo logo = new JPanelLogo();
 
 	//Declaración color 
 	private Color color = new Color(255, 215, 0);

@@ -23,19 +23,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelProveedor extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Creación tabla
-	String[] cabezera = {"ID", "RUC", "NOMBRE", "TELÉFONO", "DIRECCIÓN"};
+	private String[] cabezera = {"ID", "RUC", "NOMBRE", "TELÉFONO", "DIRECCIÓN"};
 
 	//Declaración tabla
-	JPanelTabla panelTabla = new JPanelTabla();
-	JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("proveedor"));
+	private JPanelTabla panelTabla = new JPanelTabla();
+	private JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("proveedor"));
 
 	//Textos y frases
 	private JLabel ruc = new JLabel("RUC:");
@@ -48,9 +48,9 @@ public class JPanelProveedor extends JPanel{
 	private JTextField direccionTexto = new JTextField(20);
 
 	//Declaración iconos de los botones
-	ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
-	ImageIcon iconoActualizar = new ImageIcon(Sistema.class.getResource("/img/actualizar.png"));
-	ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
+	private ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
+	private ImageIcon iconoActualizar = new ImageIcon(Sistema.class.getResource("/img/actualizar.png"));
+	private ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
 
 	//Declaración botones
 	private JButton guardarBoton = new JButton(iconoGuardar);
@@ -221,6 +221,13 @@ public class JPanelProveedor extends JPanel{
 				if (!validacion.validarPalabraEnMatrizString(datosRepetidosProveedores, rucT) && !validacion.validarPalabraEnMatrizString(datosRepetidosProveedores, nombreT) && !validacion.validarPalabraEnMatrizString(datosRepetidosProveedores, telefonoT) && !validacion.validarPalabraEnMatrizString(datosRepetidosProveedores, direccionT)) {
 					System.out.println("Ha entrado");
 					conexion.insertData("proveedor (ruc, nombre, telefono, direccion)", valores);
+					
+					//Ponemos todos los campos de textos vacíos
+					rucTexto.setText("");
+					nombreTexto.setText("");
+					telefonoTexto.setText("");
+					direccionTexto.setText("");
+					
 					guardado.setVisible(true);
 				} else {
 					System.out.println("No ha entrado");

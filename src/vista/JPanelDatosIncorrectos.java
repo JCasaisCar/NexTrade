@@ -26,12 +26,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class JPanelDatosIncorrectos extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Textos y frases
 	private JLabel datos = new JLabel("REVISA LOS DATOS");
@@ -41,7 +41,7 @@ public class JPanelDatosIncorrectos extends JPanel{
 	private JButton okBoton = new JButton("OK");
 
 	//Declaración logo
-	JPanelLogo logo = new JPanelLogo();
+	private JPanelLogo logo = new JPanelLogo();
 
 	//Declaración color 
 	private Color color = new Color(255, 215, 0);

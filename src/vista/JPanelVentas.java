@@ -27,23 +27,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelVentas extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Creación tabla
-	String[] cabezera = {"ID", "CLIENTE", "TOTAL", "FECHA"};
+	private String[] cabezera = {"ID", "CLIENTE", "TOTAL", "FECHA"};
 
 	//Declaración tabla
-	JPanelTabla panelTabla = new JPanelTabla();
-	JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("venta"));
+	private JPanelTabla panelTabla = new JPanelTabla();
+	private JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("venta"));
 
 	//Declaración iconos de los botones
-	ImageIcon iconoLupa = new ImageIcon(Sistema.class.getResource("/img/lupa.png"));
-	ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
+	private ImageIcon iconoLupa = new ImageIcon(Sistema.class.getResource("/img/lupa.png"));
+	private ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
 
 	//Declaración botones
 	private JButton lupaBoton = new JButton(iconoLupa);

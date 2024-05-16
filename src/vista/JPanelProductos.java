@@ -25,19 +25,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelProductos extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Creacion tabla
-	String[] cabezera = {"ID", "CÓDIGO", "NOMBRE", "PROVEEDOR", "STOCK", "PRECIO"};
+	private String[] cabezera = {"ID", "CÓDIGO", "NOMBRE", "PROVEEDOR", "STOCK", "PRECIO"};
 
 	//Declaración tabla
-	JPanelTabla panelTabla = new JPanelTabla();
-	JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("producto"));
+	private JPanelTabla panelTabla = new JPanelTabla();
+	private JScrollPane tabla = panelTabla.getTabla(cabezera, panelTabla.datos("producto"));
 
 	//Textos y frases
 	private JLabel codigo = new JLabel("CÓDIGO:");
@@ -52,10 +52,10 @@ public class JPanelProductos extends JPanel{
 	private JTextField cantidadTexto = new JTextField(20);
 
 	//Declaración iconos de los botones
-	ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
-	ImageIcon iconoActualizar = new ImageIcon(Sistema.class.getResource("/img/actualizar.png"));
-	ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
-	ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
+	private ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
+	private ImageIcon iconoActualizar = new ImageIcon(Sistema.class.getResource("/img/actualizar.png"));
+	private ImageIcon iconoBorrar = new ImageIcon(Sistema.class.getResource("/img/borrar.png"));
+	private ImageIcon iconoPrint = new ImageIcon(Sistema.class.getResource("/img/print.png"));
 
 	//Declaración botones
 	private JButton guardarBoton = new JButton(iconoGuardar);
@@ -276,6 +276,14 @@ public class JPanelProductos extends JPanel{
 					if (!validacion.validarPalabraEnMatrizString(datosRepetidosProductos, codigoT) && !validacion.validarPalabraEnMatrizString(datosRepetidosProductos, nombreT)) {
 						System.out.println("Ha entrado");
 						conexion.insertData("producto (codigo, nombre, proveedor, precio, stock)", valores);
+						
+						//Ponemos todos los campos de textos vacíos
+						codigoTexto.setText("");
+						nombreTexto.setText("");
+						proveedorTexto.setText("");
+						precioTexto.setText("");
+						cantidadTexto.setText("");
+						
 						guardado.setVisible(true);
 					} else {
 						System.out.println("No ha entrado");

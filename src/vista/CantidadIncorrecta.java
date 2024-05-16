@@ -16,12 +16,12 @@ import javax.swing.JPanel;
 public class CantidadIncorrecta extends JFrame {
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Declaración de el JPanel
-	JPanelCantidadIncorrecta panel = new JPanelCantidadIncorrecta();
+	private JPanelCantidadIncorrecta panel = new JPanelCantidadIncorrecta();
 	
 	private ImageIcon iconoNexTrade = new ImageIcon(Sistema.class.getResource("/img/logoRedondo.png"));
 

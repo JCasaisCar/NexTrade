@@ -20,12 +20,12 @@ import validaciones.Validaciones;
 public class Bienvenida extends JFrame {
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Declaración de el JPanel
-	JPanelBienvenida panel;
+	private JPanelBienvenida panel;
 	
 	//Declaración de el objeto
 	private Validaciones validacion = new Validaciones();

@@ -26,12 +26,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class JPanelBorrar extends JPanel{
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Declaración textos
 	private JLabel idBorrar = new JLabel("ESCRIBE EL ID:");
@@ -42,7 +42,7 @@ public class JPanelBorrar extends JPanel{
 	private JButton salirBoton = new JButton("Salir");
 
 	//Declaración logo
-	JPanelLogo logo = new JPanelLogo();
+	private JPanelLogo logo = new JPanelLogo();
 
 	//Declaración color 
 	private Color color = new Color(255, 215, 0);

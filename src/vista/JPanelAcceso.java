@@ -28,12 +28,12 @@ import javax.swing.JPanel;
 
 public class JPanelAcceso extends JPanel{
 	//Declaración de la fuente personalizada 
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	//Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Declaración de textos y frases
 	private JLabel correo = new JLabel("Correo Electrónico:");
@@ -46,7 +46,7 @@ public class JPanelAcceso extends JPanel{
 	private JButton verContraseniaBoton = new JButton("Ver");
 	
 	//Declaración logo
-	JPanelLogo logo = new JPanelLogo();
+	private JPanelLogo logo = new JPanelLogo();
 
 	//Declaración color 
 	private Color color = new Color(255, 215, 0);
@@ -55,8 +55,8 @@ public class JPanelAcceso extends JPanel{
 	private Validaciones validacion = new Validaciones();
 
 	//Declaración de los JFrame
-	DatosIncorrectos datosFrame;
-	Bienvenida bienvenidaFrame;
+	private DatosIncorrectos datosFrame;
+	private Bienvenida bienvenidaFrame;
 
 
 	public JPanelAcceso(){

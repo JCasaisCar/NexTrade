@@ -22,13 +22,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelConfiguracion extends JPanel{
-	Font fuenteGrande = new Font("Comic Sans MS", Font.BOLD, 50);
-	Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
+	private Font fuenteGrande = new Font("Comic Sans MS", Font.BOLD, 50);
+	private Font fuenteChica = new Font("Comic Sans MS", Font.ITALIC, 20);
 
 	// Declaración de el grid
-	GridBagLayout layout = new GridBagLayout();
+	private GridBagLayout layout = new GridBagLayout();
 	//Declaración variable para aplicar la configuración al grid
-	GridBagConstraints config = new GridBagConstraints();
+	private GridBagConstraints config = new GridBagConstraints();
 
 	//Textos y frases
 	private JLabel datosEmpresa = new JLabel("Datos de la Empresa");
@@ -44,7 +44,7 @@ public class JPanelConfiguracion extends JPanel{
 	private JTextField razonSocialTexto = new JTextField(20);
 
 	//Declaración iconos de los botones
-	ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
+	private ImageIcon iconoGuardar = new ImageIcon(Sistema.class.getResource("/img/GuardarTodo.png"));
 
 	//Declaración botones
 	private JButton guardarBoton = new JButton(iconoGuardar);
@@ -186,6 +186,14 @@ public class JPanelConfiguracion extends JPanel{
 				cn = conexion.conectar();
 				conexion.deleteData("configuracion", "id");
 				conexion.insertData("configuracion (ruc, nombre, telefono, direccion, mensaje)", valores);
+				
+				//Ponemos todos los campos de textos vacíos
+				rucTexto.setText("");
+				nombreTexto.setText("");
+				telefonoTexto.setText("");
+				direccionTexto.setText("");
+				razonSocialTexto.setText("");
+				
 				guardado.setVisible(true);
 			} catch (SQLException e) {	
 				e.printStackTrace();
@@ -205,7 +213,7 @@ public class JPanelConfiguracion extends JPanel{
 			if (!validacion.validarDireccion(direccionT) == true) {
 				mensaje = mensaje + " Dirección";
 			}
-			if (!razonSocialT.isEmpty()) {
+			if (razonSocialT.isEmpty()) {
 				mensaje = mensaje + " Razón Social";
 			}
 			

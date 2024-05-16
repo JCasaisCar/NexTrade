@@ -24,14 +24,14 @@ public class Conexion {
 		try {
 			Class.forName(DRIVER); //Para que sepa en que clase se encuentra el driver para conectar la BD
 			conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
-			System.out.println("Conexi�n OK");
+			System.out.println("Conexión OK");
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error al cargar el controlador");
 			e.printStackTrace();
 
 		} catch (SQLException e) {
-			System.out.println("Error en la conexi�n");
+			System.out.println("Error en la conexión");
 			e.printStackTrace();
 		}
 
@@ -43,7 +43,7 @@ public class Conexion {
 			//Cierre de la conexión
 			conection.close();
 		} catch (SQLException e) {
-			System.err.println("Se ha producido un error al cerrar la conexi�n");
+			System.err.println("Se ha producido un error al cerrar la conexión");
 
 		}
 	}
@@ -220,5 +220,25 @@ public class Conexion {
 		}
 
 		return datos;
+	}
+	
+	
+	public int obtenerUltimoIdVenta() {
+		Conexion conexion = new Conexion();
+		Connection cn = null;
+
+		try {
+			cn = conexion.conectar();
+			String ultimaId = conexion.getONEData("SELECT MAX(id) FROM venta");
+
+			if (ultimaId == null) {
+				return 0; //Si no hay ninguna id registrada devolvemos 0
+			} else {
+				return Integer.parseInt(ultimaId) + 1; //Si la última id existe parseamos la id a int y sumamos 1 para que no se sobreescriban las id
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0; //Si falla la conexión devolvemos 0
+		}
 	}
 }
